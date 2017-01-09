@@ -9,6 +9,10 @@
 import UIKit
 import AVFoundation
 
+struct RecordedAudio {
+    
+}
+
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder: AVAudioRecorder!

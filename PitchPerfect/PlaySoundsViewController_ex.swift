@@ -44,6 +44,8 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
     func playSound(rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
         
+        
+        
         // initialize audio engine components
         audioEngine = AVAudioEngine()
         
@@ -83,6 +85,18 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             connectAudioNodes(audioPlayerNode, changeRatePitchNode, audioEngine.outputNode)
         }
         
+        // measure how much time left until audio is finished every second
+        var totalRecordedTime: Double = 0
+        
+        if let rate = rate {
+            totalRecordedTime = Double(self.audioFile.length) / Double(self.audioFile.processingFormat.sampleRate) / Double(rate)
+        } else {
+            totalRecordedTime = Double(self.audioFile.length) / Double(self.audioFile.processingFormat.sampleRate)
+        }
+        
+        self.remainingTime = totalRecordedTime
+        self.remainTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlaySoundsViewController.countRemainingTime), userInfo: nil, repeats: true)
+        
         // schedule to play and start the engine!
         audioPlayerNode.stop()
         audioPlayerNode.scheduleFile(audioFile, at: nil) {
@@ -100,6 +114,8 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             
             // schedule a stop timer for when audio finishes playing
             self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(PlaySoundsViewController.stopAudio), userInfo: nil, repeats: false)
+            
+            
             RunLoop.main.add(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)
         }
         
@@ -114,6 +130,8 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         audioPlayerNode.play()
     }
     
+    
+    
     func stopAudio() {
         
         if let audioPlayerNode = audioPlayerNode {
@@ -122,6 +140,12 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         
         if let stopTimer = stopTimer {
             stopTimer.invalidate()
+        }
+        
+        if let remainTimer = remainTimer {
+            remainTimer.invalidate()
+            self.remainingTime = 0.0
+            self.remainTimeLabel.text = "00:00:00 Left"
         }
         
         configureUI(.notPlaying)
