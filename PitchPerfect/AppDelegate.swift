@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  PitchPerfect
 //
-//  Created by connect on 2017. 1. 9..
+//  Created by hpark on 2017. 1. 9..
 //  Copyright © 2017년 boostcamp. All rights reserved.
 //
 
