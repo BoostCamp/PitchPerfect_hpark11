@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--record-->
+        <!--Record-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                             <constraint firstItem="vq7-uz-8cb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LdT-ca-6fC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="record" id="B5L-HP-D5d" userLabel="Record"/>
+                    <navigationItem key="navigationItem" title="Record" id="B5L-HP-D5d" userLabel="Record"/>
                     <connections>
                         <outlet property="pauseRecordingButton" destination="Lsc-zw-B6e" id="I8Y-Ah-qac"/>
                         <outlet property="recordButton" destination="Tsd-Vk-KVi" id="ZxN-sM-ceY"/>

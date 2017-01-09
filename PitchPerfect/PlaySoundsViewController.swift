@@ -39,6 +39,11 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.notPlaying)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopAudio()
+    }
+    
     @IBAction func playSoundForButton(_ sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
         case .slow:
@@ -59,6 +64,6 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
-        print("Stop Audio Button Pressed")
+        stopAudio()
     }
 }
