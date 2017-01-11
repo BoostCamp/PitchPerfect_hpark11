@@ -50,6 +50,16 @@ class PlaySoundsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopAudio()
+        
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if !checkAudioURLSaved() {
+            
+        }
     }
     
     // MARK: Actions for playing changed sounds
@@ -111,13 +121,22 @@ class PlaySoundsViewController: UIViewController {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.entity = entityDesc
         
-        let pred = NSPredicate(format: "(fileName = %@)", "\(recordedAudioURL)")
+        let filePath = "\(recordedAudioURL.absoluteString)"
+        let pred = NSPredicate(format: "(fileName = %@)", filePath)
         request.predicate = pred
         
         do {
-            
+            let objects = try context.fetch(request)
+            if objects.count > 0 {
+                print("------------")
+                print(objects.count)
+                return true
+            } else {
+                return false
+            }
         } catch let error as NSError {
-            
+            print("\(error.localizedFailureReason)")
+            print("::: Error occurred at checking whether the audio file URL is saved in Core Data or not")
         }
         
         return false
