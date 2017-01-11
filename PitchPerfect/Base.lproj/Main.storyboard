@@ -138,7 +138,7 @@
                                 <rect key="frame" x="16" y="64" width="288" height="396"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="yLG-18-QxE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="100" id="yLG-18-QxE" customClass="ItemCell" customModule="PitchPerfect" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLG-18-QxE" id="4mH-hu-iml">
@@ -196,6 +196,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="createdLabel" destination="xEx-bd-PHF" id="pmA-TQ-6Qk"/>
+                                            <outlet property="fileNameLabel" destination="eYb-Tj-jmt" id="obj-br-9lK"/>
+                                            <outlet property="titleLabel" destination="2m3-Sg-VlB" id="jKU-uN-6tu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
