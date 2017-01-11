@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="1021.875" y="35"/>
         </scene>
-        <!--View Controller-->
+        <!--Sounds List View Controller-->
         <scene sceneID="3Kk-yt-VyT">
             <objects>
-                <viewController id="IFC-0A-abp" sceneMemberID="viewController">
+                <viewController id="IFC-0A-abp" customClass="SoundsListViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5pl-et-E8W"/>
                         <viewControllerLayoutGuide type="bottom" id="tsv-jF-YE0"/>
@@ -208,6 +208,9 @@
                             <constraint firstItem="tsv-jF-YE0" firstAttribute="top" secondItem="kNc-em-tmG" secondAttribute="bottom" constant="20" id="O3Q-MI-iXj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="soundsTableView" destination="kNc-em-tmG" id="2cy-Ac-hSZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gl6-8X-Ddn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
