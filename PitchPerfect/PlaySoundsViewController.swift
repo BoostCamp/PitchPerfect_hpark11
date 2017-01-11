@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class PlaySoundsViewController: UIViewController {
     
@@ -27,6 +28,7 @@ class PlaySoundsViewController: UIViewController {
     var stopTimer: Timer!
     var remainTimer: Timer!
     
+    var isSaved:Bool = false
     var remainingTime: Double = 0
     
     enum ButtonType: Int {
@@ -75,6 +77,19 @@ class PlaySoundsViewController: UIViewController {
         stopAudio()
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "saveAudio", sender: recordedAudioURL)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveAudio" {
+            let saveSoundsVC = segue.destination as! SaveSoundsViewController
+            let recordedAudioURL = sender as! URL
+            saveSoundsVC.recordedAudioURL = recordedAudioURL
+        }
+    }
+    
+    
     // MARK: General methods
     
     func countRemainingTime() {
@@ -89,5 +104,22 @@ class PlaySoundsViewController: UIViewController {
 
         self.remainTimeLabel.text = "\(hours):\(minutes):\(seconds) Left"
         self.remainingTime = self.remainingTime - 1.0
+    }
+    
+    func checkAudioURLSaved() -> Bool {
+        let entityDesc = NSEntityDescription.entity(forEntityName: "Item", in: context)
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        request.entity = entityDesc
+        
+        let pred = NSPredicate(format: "(fileName = %@)", "\(recordedAudioURL)")
+        request.predicate = pred
+        
+        do {
+            
+        } catch let error as NSError {
+            
+        }
+        
+        return false
     }
 }

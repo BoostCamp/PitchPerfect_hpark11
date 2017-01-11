@@ -32,11 +32,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         changeUIState(record: false, stop: false, pause: false, resume: true, recordLbl: false, state: "Recording")
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
-        let recordingName = "recordedVoice.wav"
+        
+        let current = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddyyyyMM-HHmmss"
+        let recordingName = formatter.string(from: current as Date) + ".wav"
         let pathArray = [dirPath, recordingName]
         let filePath = URL(string: pathArray.joined(separator: "/"))
-        print(filePath as Any)
-        
+
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
@@ -44,7 +47,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         } catch _ {
             print("::: Error in Recording Audio")
         }
-    
+        
         audioRecorder.delegate = self
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()

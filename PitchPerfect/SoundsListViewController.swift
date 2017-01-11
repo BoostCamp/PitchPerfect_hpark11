@@ -21,7 +21,6 @@ class SoundsListViewController: UIViewController {
         self.soundsTableView.delegate = self
         self.soundsTableView.dataSource = self
         
-        //generateTestData()
         fetchData()
     }
     
@@ -41,26 +40,6 @@ class SoundsListViewController: UIViewController {
             let error = error as NSError
             print("\(error)")
         }
-    }
-    
-    
-    func generateTestData() {
-        let item = Item(context: context)
-        item.title = "Mac Book Pro"
-        item.fileName = "ppp.wav"
-        item.created = NSDate()
-        
-        let item2 = Item(context: context)
-        item2 .title = "Mac Book Pro"
-        item2.fileName = "ppp.wav"
-        item2.created = NSDate()
-        
-        let item3 = Item(context: context)
-        item3.title = "Mac Book Pro"
-        item3.fileName = "ppp.wav"
-        item3.created = NSDate()
-        
-        appDelegate.saveContext()
     }
     
 }
