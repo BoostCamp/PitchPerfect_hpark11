@@ -28,7 +28,15 @@ extension SoundsListViewController : UITableViewDelegate, UITableViewDataSource 
     // when selected particular cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let objects = itemController.fetchedObjects, objects.count > 0 {
-            //let item = objects[indexPath.row]
+            let item = objects[indexPath.row]
+            
+            let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+            
+            if let recordingName = item.fileName {
+                let pathArray = [dirPath, recordingName]
+                let filePath = URL(string: pathArray.joined(separator: "/"))
+                performSegue(withIdentifier: "playSavedFile", sender: filePath)
+            }
         }
     }
     

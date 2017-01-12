@@ -42,4 +42,14 @@ class SoundsListViewController: UIViewController {
         }
     }
     
+    // playSoundsViewController needs to know what it should do when the segue is performed
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "playSavedFile" {
+            let playSoundsVC = segue.destination as! PlaySoundsViewController
+            let recordedAudioURL = sender as! URL
+            playSoundsVC.recordedAudioURL = recordedAudioURL
+            playSoundsVC.isSaved = true
+        }
+    }
+    
 }

@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +21,70 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_front" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-3i-MjN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upper" translatesAutoresizingMaskIntoConstraints="NO" id="gQ2-xA-xOg">
+                                <rect key="frame" x="0.0" y="362" width="375" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="EGE-4r-aK9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lower" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-cA-3tT">
+                                <rect key="frame" x="0.0" y="482" width="375" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="NJ6-aG-77O"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let us to listen your voice" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEf-db-2uY">
+                                <rect key="frame" x="16" y="484" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="NyR-ef-GqZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch Perfect" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1E-xq-dni">
+                                <rect key="frame" x="16" y="424" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="mTo-Rm-azP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mEf-db-2uY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="2qN-X6-v5l"/>
+                            <constraint firstItem="n1E-xq-dni" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="BvQ-Mt-pM3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n1E-xq-dni" secondAttribute="trailing" id="KxU-QO-w7V"/>
+                            <constraint firstItem="gQ2-xA-xOg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="LOV-0w-fz3"/>
+                            <constraint firstAttribute="trailing" secondItem="TAS-3i-MjN" secondAttribute="trailing" id="OK8-am-pVp"/>
+                            <constraint firstAttribute="trailing" secondItem="gQ2-xA-xOg" secondAttribute="trailing" id="QDe-8F-4vR"/>
+                            <constraint firstItem="1xx-cA-3tT" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Qni-hv-SL4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mEf-db-2uY" secondAttribute="trailing" id="Qt1-YP-n7I"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="TAS-3i-MjN" secondAttribute="bottom" id="RTK-gA-FoP"/>
+                            <constraint firstAttribute="trailing" secondItem="1xx-cA-3tT" secondAttribute="trailing" id="T0S-RS-Rbs"/>
+                            <constraint firstItem="1xx-cA-3tT" firstAttribute="top" secondItem="n1E-xq-dni" secondAttribute="bottom" constant="3" id="ZVX-ob-gZj"/>
+                            <constraint firstItem="TAS-3i-MjN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="elg-Jz-UPA"/>
+                            <constraint firstItem="mEf-db-2uY" firstAttribute="top" secondItem="gQ2-xA-xOg" secondAttribute="bottom" id="fy1-Ye-vST"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1xx-cA-3tT" secondAttribute="bottom" constant="113" id="qZq-XA-wSD"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="gQ2-xA-xOg" secondAttribute="bottom" constant="183" id="qvM-2T-jdz"/>
+                            <constraint firstItem="TAS-3i-MjN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="uWa-mO-l3y"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_front" width="1920" height="1080"/>
+        <image name="lower" width="375" height="50"/>
+        <image name="upper" width="375" height="100"/>
+    </resources>
 </document>

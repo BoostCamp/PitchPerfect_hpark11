@@ -22,6 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_second" translatesAutoresizingMaskIntoConstraints="NO" id="XFS-co-dXa">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vq7-uz-8cb">
                                 <rect key="frame" x="10" y="134" width="300" height="300"/>
                                 <subviews>
@@ -116,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021.875" y="35"/>
+            <point key="canvasLocation" x="1021.875" y="34.859154929577464"/>
         </scene>
         <!--Sounds List View Controller-->
         <scene sceneID="3Kk-yt-VyT">
@@ -130,7 +134,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kNc-em-tmG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kNc-em-tmG">
                                 <rect key="frame" x="16" y="64" width="288" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -138,7 +142,7 @@
                                         <rect key="frame" x="0.0" y="28" width="288" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLG-18-QxE" id="4mH-hu-iml">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-Mx-Pg2">
@@ -182,6 +186,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="eYb-Tj-jmt" secondAttribute="trailing" constant="8" id="lGH-Fh-hSy"/>
                                                         <constraint firstAttribute="trailing" secondItem="xEx-bd-PHF" secondAttribute="trailing" constant="8" id="mye-J6-Tkp"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -191,7 +198,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="YBX-Mx-Pg2" secondAttribute="bottom" constant="8" id="x5d-cL-nfJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="createdLabel" destination="xEx-bd-PHF" id="pmA-TQ-6Qk"/>
                                             <outlet property="fileNameLabel" destination="eYb-Tj-jmt" id="obj-br-9lK"/>
@@ -199,23 +205,40 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 소리를 찾아보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sh-wm-IC5">
+                                <rect key="frame" x="28" y="74" width="276" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="B37-so-Byp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kNc-em-tmG" firstAttribute="top" secondItem="5pl-et-E8W" secondAttribute="bottom" id="Dif-HC-afA"/>
                             <constraint firstItem="kNc-em-tmG" firstAttribute="trailing" secondItem="WGV-g7-4Sg" secondAttribute="trailingMargin" id="HUe-Dk-wE9"/>
+                            <constraint firstItem="6Sh-wm-IC5" firstAttribute="leading" secondItem="WGV-g7-4Sg" secondAttribute="leadingMargin" constant="12" id="HkJ-kg-gGo"/>
                             <constraint firstItem="kNc-em-tmG" firstAttribute="leading" secondItem="WGV-g7-4Sg" secondAttribute="leadingMargin" id="MZV-1a-4Ak"/>
                             <constraint firstItem="tsv-jF-YE0" firstAttribute="top" secondItem="kNc-em-tmG" secondAttribute="bottom" constant="20" id="O3Q-MI-iXj"/>
+                            <constraint firstItem="6Sh-wm-IC5" firstAttribute="top" secondItem="5pl-et-E8W" secondAttribute="bottom" constant="10" id="cbb-ne-GpL"/>
+                            <constraint firstItem="6Sh-wm-IC5" firstAttribute="trailing" secondItem="WGV-g7-4Sg" secondAttribute="trailingMargin" id="esP-aG-0Py"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="soundsTableView" destination="kNc-em-tmG" id="2cy-Ac-hSZ"/>
+                        <segue destination="yyJ-Of-t7H" kind="show" identifier="playSavedFile" id="nox-3X-mqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gl6-8X-Ddn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.375" y="-648.75"/>
+            <point key="canvasLocation" x="2059" y="-754"/>
         </scene>
         <!--Play-->
         <scene sceneID="RSd-qw-GHx">
@@ -331,6 +354,7 @@
                         <outlet property="rabbitButton" destination="VuI-d8-AIc" id="sEo-4k-hY4"/>
                         <outlet property="remainTimeLabel" destination="ZMC-8w-nMm" id="jXy-Yk-q6G"/>
                         <outlet property="reverbButton" destination="hhG-KO-OgT" id="xyY-0E-zzB"/>
+                        <outlet property="saveButton" destination="X3R-qo-Viw" id="sQe-iD-wdA"/>
                         <outlet property="snailButton" destination="Cvf-BB-Rni" id="sNK-3b-q9K"/>
                         <outlet property="stopButton" destination="WcG-Wg-e8g" id="h7v-NC-jeu"/>
                         <outlet property="vaderButton" destination="rPZ-0h-2Er" id="fSf-2b-CFC"/>
@@ -428,6 +452,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_second" width="375" height="667"/>
         <image name="chipmunk" width="100" height="100"/>
         <image name="echo" width="100" height="100"/>
         <image name="pause" width="80" height="80"/>
@@ -439,4 +464,7 @@
         <image name="stop" width="50" height="50"/>
         <image name="vader" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="CjT-2h-LP5"/>
+    </inferredMetricsTieBreakers>
 </document>

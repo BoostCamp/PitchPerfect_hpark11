@@ -27,7 +27,8 @@ class SaveSoundsViewController: UIViewController {
         }
         
         if let url = recordedAudioURL {
-            item.fileName = "\(url)"
+            let pathArr: [String] = url.path.components(separatedBy: "/")
+            item.fileName = pathArr[pathArr.count - 1]
         }
         
         item.created = NSDate()

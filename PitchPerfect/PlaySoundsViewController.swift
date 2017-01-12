@@ -19,6 +19,7 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var echoButton: UIButton!
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var remainTimeLabel: UILabel!
     
     var recordedAudioURL:URL!
@@ -40,6 +41,10 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        
+        if isSaved {
+            saveButton.isEnabled = !saveButton.isEnabled
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,8 +133,6 @@ class PlaySoundsViewController: UIViewController {
         do {
             let objects = try context.fetch(request)
             if objects.count > 0 {
-                print("------------")
-                print(objects.count)
                 return true
             } else {
                 return false
