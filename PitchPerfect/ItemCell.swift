@@ -14,9 +14,15 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var createdLabel: UILabel!
     
+    
+    
     func buildCell(item: Item) {
         titleLabel.text = item.title
         fileNameLabel.text = item.fileName
-        createdLabel.text = "\(item.created)"
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일 - HH:mm:ss"
+        let recordingName = formatter.string(from: item.created as! Date)
+        createdLabel.text = recordingName
     }
 }

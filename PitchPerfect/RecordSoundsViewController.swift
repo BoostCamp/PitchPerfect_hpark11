@@ -26,10 +26,17 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         changeUIState(record: true, stop: true, pause: true, resume: true, recordLbl: true, state: "")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     // MARK: Actions Relating to Audio Recording
     
     @IBAction func recordAudio(_ sender: Any) {
-        changeUIState(record: false, stop: false, pause: false, resume: true, recordLbl: false, state: "Recording")
+        
+        UIView.animate(withDuration: 1.5) {
+            self.changeUIState(record: false, stop: false, pause: false, resume: true, recordLbl: false, state: "Recording")
+        }
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         

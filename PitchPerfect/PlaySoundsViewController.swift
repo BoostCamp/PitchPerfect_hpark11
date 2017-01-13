@@ -30,6 +30,7 @@ class PlaySoundsViewController: UIViewController {
     var remainTimer: Timer!
     
     var isSaved:Bool = false
+    var isTrySaving: Bool = false
     var remainingTime: Double = 0
     
     enum ButtonType: Int {
@@ -52,18 +53,30 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.notPlaying)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isTrySaving = false
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopAudio()
-        
         
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        if !checkAudioURLSaved() {
-            
+        if !isTrySaving {
+            if !checkAudioURLSaved() {
+                let fileManager = FileManager.default
+                do {
+                    try fileManager.removeItem(atPath: recordedAudioURL.absoluteString)
+                }
+                catch let error as NSError {
+                    print("::: Error in deleting audio file at : \(error)")
+                }
+            }
         }
     }
     
@@ -93,6 +106,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        isTrySaving = true
         performSegue(withIdentifier: "saveAudio", sender: recordedAudioURL)
     }
     
@@ -114,10 +128,10 @@ class PlaySoundsViewController: UIViewController {
         
         if (remainingTime < 1) {
             remainTimer.invalidate()
-            self.remainTimeLabel.text = "00:00:00 Left"
+            self.remainTimeLabel.text = "00:00:00"
         }
 
-        self.remainTimeLabel.text = "\(hours):\(minutes):\(seconds) Left"
+        self.remainTimeLabel.text = "\(hours):\(minutes):\(seconds)"
         self.remainingTime = self.remainingTime - 1.0
     }
     
@@ -126,20 +140,24 @@ class PlaySoundsViewController: UIViewController {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.entity = entityDesc
         
-        let filePath = "\(recordedAudioURL.absoluteString)"
-        let pred = NSPredicate(format: "(fileName = %@)", filePath)
-        request.predicate = pred
-        
-        do {
-            let objects = try context.fetch(request)
-            if objects.count > 0 {
-                return true
-            } else {
-                return false
+        if let url = self.recordedAudioURL {
+            let pathArr: [String] = url.path.components(separatedBy: "/")
+            let filePath = pathArr[pathArr.count - 1]
+            
+            let pred = NSPredicate(format: "(fileName = %@)", filePath)
+            request.predicate = pred
+            
+            do {
+                let objects = try context.fetch(request)
+                if objects.count > 0 {
+                    return true
+                } else {
+                    return false
+                }
+            } catch let error as NSError {
+                print("\(error.localizedFailureReason)")
+                print("::: Error occurred at checking whether the audio file URL is saved in Core Data or not")
             }
-        } catch let error as NSError {
-            print("\(error.localizedFailureReason)")
-            print("::: Error occurred at checking whether the audio file URL is saved in Core Data or not")
         }
         
         return false

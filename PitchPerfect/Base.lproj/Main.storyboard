@@ -22,10 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_second" translatesAutoresizingMaskIntoConstraints="NO" id="XFS-co-dXa">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vq7-uz-8cb">
                                 <rect key="frame" x="10" y="134" width="300" height="300"/>
                                 <subviews>
@@ -122,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="1021.875" y="34.859154929577464"/>
         </scene>
-        <!--Sounds List View Controller-->
+        <!--List-->
         <scene sceneID="3Kk-yt-VyT">
             <objects>
                 <viewController id="IFC-0A-abp" customClass="SoundsListViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,6 +227,7 @@
                             <constraint firstItem="6Sh-wm-IC5" firstAttribute="trailing" secondItem="WGV-g7-4Sg" secondAttribute="trailingMargin" id="esP-aG-0Py"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="List" id="D2F-3c-wRH"/>
                     <connections>
                         <outlet property="soundsTableView" destination="kNc-em-tmG" id="2cy-Ac-hSZ"/>
                         <segue destination="yyJ-Of-t7H" kind="show" identifier="playSavedFile" id="nox-3X-mqg"/>
@@ -322,12 +319,23 @@
                                                     <action selector="stopButtonPressed:" destination="yyJ-Of-t7H" eventType="touchUpInside" id="wOa-Dv-mrU"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00 Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMC-8w-nMm">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zfZ-YY-V9c">
                                                 <rect key="frame" x="144" y="0.0" width="144" height="72"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[남은 재생 시간]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDq-JH-ydd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="36"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMC-8w-nMm">
+                                                        <rect key="frame" x="0.0" y="36" width="144" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -452,7 +460,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_second" width="375" height="667"/>
         <image name="chipmunk" width="100" height="100"/>
         <image name="echo" width="100" height="100"/>
         <image name="pause" width="80" height="80"/>
@@ -465,6 +472,6 @@
         <image name="vader" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CjT-2h-LP5"/>
+        <segue reference="nox-3X-mqg"/>
     </inferredMetricsTieBreakers>
 </document>

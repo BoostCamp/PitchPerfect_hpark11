@@ -145,7 +145,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         if let remainTimer = remainTimer {
             remainTimer.invalidate()
             self.remainingTime = 0.0
-            self.remainTimeLabel.text = "00:00:00 Left"
+            self.remainTimeLabel.text = "00:00:00"
         }
         
         configureUI(.notPlaying)
