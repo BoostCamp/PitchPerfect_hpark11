@@ -29,11 +29,11 @@ first assignment for boostcamp
     * 테이블 뷰를 통해 이전에 저장해둔 파일가지고 변조사운드 재생가능
 
 ### 구현 화면
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/1.png" width="228">
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/2.png" width="270">
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/3.png" width="270">
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/4.png" width="270">
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/5.png" width="270">
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/6.png" width="270">
-<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/7.png" width="270">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/1.png" width="280">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/2.png" width="280">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/3.png" width="280">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/4.png" width="280">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/5.png" width="280">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/6.png" width="280">
+<img src="https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/7.png" width="280">
 
