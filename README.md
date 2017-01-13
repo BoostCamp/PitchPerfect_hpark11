@@ -6,7 +6,7 @@ first assignment for boostcamp
 * Goal : BoostCamp 1st Assignment
 
 ### 시연
-[![ScreenShot](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/watch?v=mvgpq852hkQ)
+[![ScreenShot](https://github.com/BoostCamp/PitchPerfect_hpark11/blob/master/PitchPerfect/img/8.png)](https://www.youtube.com/watch?v=O1ZN7xzn0RE)
 
 ### 어플리케이션 기본기능
 * 사운드 녹음
